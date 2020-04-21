@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/list_item_design"
+        android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/routineTitleID"
+                android:layout_marginTop="19dp"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Buy a car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/routineDescID"
+                android:textSize="18sp"
+                android:textColor="#5E5B5B"
+                android:layout_marginTop="8dp"
+                android:text="Nearly showroom to go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/routineExecuteDataID"
+                android:textSize="20sp"
+                android:textColor="#F63EA5"
+                android:text="Tomorrow"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

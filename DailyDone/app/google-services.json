@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "784406018330",
+    "firebase_url": "https://daily-done-48299.firebaseio.com",
+    "project_id": "daily-done-48299",
+    "storage_bucket": "daily-done-48299.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784406018330:android:9b57c0ab5c9c65ee0494a3",
+        "android_client_info": {
+          "package_name": "com.example.dailydone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784406018330-g211g2era7pjlhfo6srergf3sq5m15ic.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dailydone",
+            "certificate_hash": "fab83aa7788ae07724c561e862f53f36579441fa"
+          }
+        },
+        {
+          "client_id": "784406018330-lpm238t01a30aus5d15hhtl2nptkb4q2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJXMbCxhbgFHFyv4OFEwbWdssQte6qWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784406018330-lpm238t01a30aus5d15hhtl2nptkb4q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

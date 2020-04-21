@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/taskNameInputID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Task"
+                android:textColorHint="#000000"
+                android:paddingTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:fontFamily="serif"
+                android:layout_marginRight="20dp"
+                android:inputType="text"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/taskDetailsInputID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:textColorHint="#000000"
+                android:paddingTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:fontFamily="serif"
+                android:layout_marginRight="20dp"
+                android:inputType="text"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/executionDateInputID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date / Day"
+                android:textColorHint="#000000"
+                android:paddingTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:fontFamily="serif"
+                android:layout_marginRight="20dp"
+                android:inputType="text"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/saveTaskID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/save_and_add_design"
+                android:text="Save"
+                android:textSize="22dp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:layout_marginTop="50dp"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
