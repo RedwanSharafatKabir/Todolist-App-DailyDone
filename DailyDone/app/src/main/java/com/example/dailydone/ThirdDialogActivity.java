@@ -15,8 +15,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Collections;
 
 public class ThirdDialogActivity extends AppCompatDialogFragment implements View.OnClickListener{
 
@@ -46,44 +53,50 @@ public class ThirdDialogActivity extends AppCompatDialogFragment implements View
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Routine of Users");
 
-        Bundle bundle = getActivity().getIntent().getExtras();
-        if(bundle!=null){
-            String value2 = bundle.getString("phone_key_name");
-            Phone = value2;
-        }
-
         return builder.create();
     }
 
     @Override
     public void onClick(View v) {
-        String routineTitle = task.getText().toString();
-        String routineDesc = description.getText().toString();
-        String routineExecuteDate = date.getText().toString();
+        final String routineTitle = task.getText().toString();
+        final String routineDesc = description.getText().toString();
+        final String routineExecuteDate = date.getText().toString();
 
         if(v.getId()==R.id.saveTaskID){
             if(routineTitle.isEmpty() || routineDesc.isEmpty() || routineExecuteDate.isEmpty()){
                 Toast.makeText(getActivity(), "Fill up all required fields", Toast.LENGTH_LONG).show();
             }
             else {
-                storeRoutineDataMethod(Phone, routineTitle, routineDesc, routineExecuteDate);
-                task.setText("");
-                description.setText("");
-                date.setText("");
-            }
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    if (user.getDisplayName() != null) {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User Information")
+                                .child(user.getDisplayName()).child("phoneObj");
+                        ref.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Phone = dataSnapshot.getValue(String.class);
+                                storeRoutineDataMethod(Phone, routineTitle, routineDesc, routineExecuteDate);
+                                task.setText("");
+                                description.setText("");
+                                date.setText("");
+                                getDialog().dismiss();
+                            }
 
-//            Intent it = new Intent(getActivity(), FourthDialogActivity.class);
-//            it.putExtra("phone_key_name", Phone);
-//            startActivityForResult(it, 1);
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {}
+                        });
+                    }
+                }
+            }
         }
     }
 
-    private void storeRoutineDataMethod(String Phone, String routineTitle, String routineDesc, String routineExecuteDate) {
+    private void storeRoutineDataMethod(String Phone, String routineTitle,
+                 String routineDesc, String routineExecuteDate) {
+
         String Key_User_Info = Phone;
         StoreRoutineData storeRoutineData = new StoreRoutineData(routineTitle, routineDesc, routineExecuteDate);
         databaseReference.child(Key_User_Info).child(routineTitle).setValue(storeRoutineData);
-
-//        SecondActivity sl = (SecondActivity) getActivity();
-//        sl.fl(routineTitle);
     }
 }

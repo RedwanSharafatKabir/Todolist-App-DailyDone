@@ -2,16 +2,24 @@ package com.example.dailydone;
 
 public class StoreData {
 
+    String emailObj;
     String phoneObj;
-    String nameObj;
 
     public StoreData(){
 
     }
 
-    public StoreData(String phoneObj, String nameObj) {
+    public StoreData(String emailObj, String phoneObj) {
+        this.emailObj = emailObj;
         this.phoneObj = phoneObj;
-        this.nameObj = nameObj;
+    }
+
+    public String getEmailObj() {
+        return emailObj;
+    }
+
+    public void setEmailObj(String emailObj) {
+        this.emailObj = emailObj;
     }
 
     public String getPhoneObj() {
@@ -20,13 +28,5 @@ public class StoreData {
 
     public void setPhoneObj(String phoneObj) {
         this.phoneObj = phoneObj;
-    }
-
-    public String getNameObj() {
-        return nameObj;
-    }
-
-    public void setNameObj(String nameObj) {
-        this.nameObj = nameObj;
     }
 }

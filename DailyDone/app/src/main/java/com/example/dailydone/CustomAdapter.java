@@ -1,8 +1,6 @@
 package com.example.dailydone;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import java.util.*;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    String routineTitle, routineDesc, routineExecuteDate;
     Context context;
     ArrayList<StoreRoutineData> storeRoutineData;
 
@@ -31,21 +28,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        routineTitle = storeRoutineData.get(position).getRoutineTitle();
-        routineDesc = storeRoutineData.get(position).getRoutineDesc();
-        routineExecuteDate = storeRoutineData.get(position).getRoutineExecuteDate();
 
-        holder.textView1.setText(routineTitle);
-        holder.textView2.setText(routineDesc);
-        holder.textView3.setText(routineExecuteDate);
+        holder.textView1.setText(storeRoutineData.get(position).getRoutineTitle());
+        holder.textView2.setText(storeRoutineData.get(position).getRoutineDesc());
+        holder.textView3.setText(storeRoutineData.get(position).getRoutineExecuteDate());
+
+        final String routineTitle = storeRoutineData.get(position).getRoutineTitle();
+        final String routineDesc = storeRoutineData.get(position).getRoutineDesc();
+        final String routineExecuteDate = storeRoutineData.get(position).getRoutineExecuteDate();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(context, FourthDialogActivity.class);
                 it.putExtra("routine_title_key", routineTitle);
-                it.putExtra("routine_details_key", routineDesc);
-                it.putExtra("routine_Date_key", routineExecuteDate);
+                it.putExtra("routine_desc_key", routineDesc);
+                it.putExtra("routine_date_key", routineExecuteDate);
                 context.startActivity(it);
             }
         });

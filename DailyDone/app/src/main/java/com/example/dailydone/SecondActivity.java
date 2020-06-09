@@ -40,14 +40,15 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     RecyclerView recyclerView;
     ArrayList<StoreRoutineData> storeRoutineDataArrayList;
     CustomAdapter customAdapter;
-    String Phone, Name;
+    String Phone;
     FloatingActionButton floatingActionButton;
-    DatabaseReference databaseReference;
     Dialog dialog;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_second);
 
         dialog = new Dialog(this);
@@ -58,13 +59,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         storeRoutineDataArrayList = new ArrayList<StoreRoutineData>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Routine of Users");
-
-        Bundle bundle = getIntent().getExtras();
-        if(bundle!=null){
-            Phone = bundle.getString("phone_key_name");
-            Name = bundle.getString("name_key_name");
-        }
     }
 
     @Override
@@ -77,24 +71,49 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onStart() {
-        databaseReference.child(Phone).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                storeRoutineDataArrayList.clear();
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
-                    StoreRoutineData storeRoutineData = dataSnapshot1.getValue(StoreRoutineData.class);
-                    storeRoutineDataArrayList.add(storeRoutineData);
-                }
-                Collections.reverse(storeRoutineDataArrayList);
-                customAdapter = new CustomAdapter(SecondActivity.this, storeRoutineDataArrayList);
-                recyclerView.setAdapter(customAdapter);
-                customAdapter.notifyDataSetChanged();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            if (user.getDisplayName() != null) {
+                DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("User Information")
+                        .child(user.getDisplayName()).child("phoneObj");
+                ref1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Phone = dataSnapshot.getValue(String.class);
+                        try {
+                            DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("Routine of Users")
+                                    .child(Phone);
+                            ref2.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    storeRoutineDataArrayList.clear();
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        StoreRoutineData storeRoutineData = dataSnapshot1.getValue(StoreRoutineData.class);
+                                        storeRoutineDataArrayList.add(storeRoutineData);
+                                    }
+
+                                    Collections.reverse(storeRoutineDataArrayList);
+                                    customAdapter = new CustomAdapter(SecondActivity.this, storeRoutineDataArrayList);
+                                    recyclerView.setAdapter(customAdapter);
+                                    customAdapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    Toast.makeText(SecondActivity.this, "No Data", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        } catch (Exception e){
+                            Toast.makeText(SecondActivity.this, "No Data", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(SecondActivity.this, "No Data", Toast.LENGTH_LONG).show();
-            }
-        });
+        }
+
         super.onStart();
     }
 
@@ -104,16 +123,20 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         alertDialogBuilder = new AlertDialog.Builder(this);
 
-        alertDialogBuilder.setTitle("Are you sure to exit ?");
+        alertDialogBuilder.setTitle("Logout ?");
         alertDialogBuilder.setIcon(R.drawable.exit);
         alertDialogBuilder.setCancelable(false);
 
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                mAuth.getInstance().signOut();
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("Exit me", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
-                Intent it = new Intent(SecondActivity.this, MainActivity.class);
-                startActivity(it);
             }
         });
         alertDialogBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
@@ -125,16 +148,4 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
-//    public void fl(String Title){
-//        DatabaseReference userRef1 = databaseReference.child(Phone).child(Title).child("routineTitle");
-//        userRef1.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                textView2.setText(" " + dataSnapshot.getValue(String.class));
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {}
-//        });
-//    }
 }

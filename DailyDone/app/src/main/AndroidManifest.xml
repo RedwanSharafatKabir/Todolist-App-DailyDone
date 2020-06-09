@@ -20,7 +20,8 @@
 
         <activity
             android:name=".SecondActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="fullSensor"/>
+
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="fullSensor">
@@ -30,9 +31,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="com.example.dailydone.MainActivity" />
 

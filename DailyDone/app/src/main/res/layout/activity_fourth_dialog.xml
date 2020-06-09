@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="20dp">
+            android:paddingBottom="30dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -72,17 +72,17 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/taskNameOutputID"
+                        android:inputType="text"
                         android:background="@drawable/bginputtask"
                         android:paddingLeft="12dp"
+                        android:textColorHint="#555454"
                         android:textColor="@color/colorPrimaryDark"
-                        android:text="Task name"
+                        android:hint="Task details"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:textSize="20dp"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="12dp"/>
+                        android:layout_height="55dp" />
+
                 </LinearLayout>
 
                 <LinearLayout

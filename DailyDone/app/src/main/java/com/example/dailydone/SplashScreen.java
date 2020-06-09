@@ -7,7 +7,12 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashScreen extends AppCompatActivity {
+
+    FirebaseUser firebaseUser = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +40,16 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     public void startHomePage(){
-        Intent it = new Intent(SplashScreen.this, MainActivity.class);
-        startActivity(it);
-        finish();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null) {
+            Intent it = new Intent(SplashScreen.this, SecondActivity.class);
+            startActivity(it);
+            finish();
+        }
+        else if(firebaseUser == null){
+            Intent it = new Intent(SplashScreen.this, MainActivity.class);
+            startActivity(it);
+            finish();
+        }
     }
 }
