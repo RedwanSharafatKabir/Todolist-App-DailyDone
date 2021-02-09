@@ -16,54 +16,63 @@
             android:orientation="vertical"
             android:layout_gravity="center">
 
-            <EditText
-                android:id="@+id/taskNameInputID"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Task"
-                android:textColorHint="#000000"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textAllCaps="false"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:fontFamily="serif"
                 android:layout_marginRight="20dp"
-                android:inputType="text"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp">
+                <EditText
+                    android:id="@+id/taskNameInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=" Task"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif"
+                    android:inputType="text"
+                    android:layout_gravity="center" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/taskDetailsInputID"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
-                android:textColorHint="#000000"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textAllCaps="false"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:fontFamily="serif"
-                android:layout_marginRight="20dp"
-                android:inputType="text"
-                android:layout_gravity="center"/>
+                android:layout_marginRight="20dp">
+                <EditText
+                    android:id="@+id/taskDetailsInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=" Description"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif"
+                    android:inputType="text"
+                    android:layout_gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/executionDateInputID"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date / Day"
-                android:textColorHint="#000000"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textAllCaps="false"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:fontFamily="serif"
-                android:layout_marginRight="20dp"
-                android:inputType="text"
-                android:layout_gravity="center"/>
+                android:layout_marginRight="20dp">
+                <EditText
+                    android:id="@+id/executionDateInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=" Date / Day"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif"
+                    android:inputType="text"
+                    android:layout_gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/saveTaskID"

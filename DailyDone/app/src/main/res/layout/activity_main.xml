@@ -22,6 +22,7 @@
                 android:layout_height="55dp"/>
 
             <ImageView
+                android:id="@+id/clockImageId"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/prepare"
@@ -41,40 +42,45 @@
                 android:paddingTop="70dp"
                 android:paddingBottom="10dp">
 
-                <EditText
-                    android:id="@+id/emailInputID"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:textColorHint="#000000"
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     android:layout_marginLeft="20dp"
-                    android:textAllCaps="false"
-                    android:textSize="25dp"
-                    android:textColor="#000000"
-                    android:fontFamily="serif"
-                    android:layout_marginRight="20dp"
-                    android:inputType="text"
-                    android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_marginRight="20dp">
+                    <EditText
+                        android:id="@+id/emailInputID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif"
+                        android:inputType="text"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/phoneInputID"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone"
-                    android:textColorHint="#000000"
-                    android:paddingTop="20dp"
-                    android:layout_marginTop="30dp"
+                    android:paddingTop="10dp"
                     android:layout_marginLeft="20dp"
-                    android:textAllCaps="false"
-                    android:textSize="25dp"
-                    android:textColor="#000000"
-                    android:fontFamily="serif"
-                    android:layout_marginRight="20dp"
-                    android:inputType="numberDecimal"
-                    android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_marginRight="20dp">
+                    <EditText
+                        android:id="@+id/phoneInputID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif"
+                        android:inputType="numberDecimal"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/enterID"

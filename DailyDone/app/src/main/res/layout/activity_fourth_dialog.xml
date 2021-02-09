@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,172 +9,175 @@
     tools:context=".FourthDialogActivity"
     android:background="#D8D7D7">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="30dp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:background="@color/colorPrimaryDark"
-                android:layout_height="200dp"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:text="Update your task"
-                    android:textAlignment="center"
-                    android:textColor="#ffffff"
-                    android:textSize="30dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="serif"
-                    android:text="Prepare future according to your plan"
-                    android:textAlignment="center"
-                    android:textColor="#ffffff"
-                    android:textSize="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="-60dp"
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="200dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bgitemdoes"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Update your task"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="serif"
+                android:text="Prepare future according to your plan"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="-60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bgitemdoes"
+            android:orientation="vertical"
+            android:paddingBottom="22dp"
+            android:paddingTop="22dp">
+            <LinearLayout
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
                 android:orientation="vertical"
-                android:paddingBottom="22dp"
-                android:paddingTop="22dp">
-                <LinearLayout
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="  Title"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:textSize="18sp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text="  Title"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"/>
-
-                    <EditText
-                        android:id="@+id/taskNameOutputID"
-                        android:inputType="text"
-                        android:background="@drawable/bginputtask"
-                        android:paddingLeft="12dp"
-                        android:textColorHint="#555454"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Task details"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:orientation="vertical"
+                <EditText
+                    android:id="@+id/taskNameOutputID"
+                    android:inputType="text"
+                    android:background="@drawable/bginputtask"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Task details"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textSize="18sp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text="  Description"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"/>
-
-                    <EditText
-                        android:id="@+id/taskDetailsOutputID"
-                        android:inputType="text"
-                        android:background="@drawable/bginputtask"
-                        android:paddingLeft="12dp"
-                        android:textColorHint="#555454"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Task details"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textSize="18sp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text="  Timeline"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"/>
-
-                    <EditText
-                        android:id="@+id/executionDateOutputID"
-                        android:inputType="text"
-                        android:background="@drawable/bginputtask"
-                        android:paddingLeft="12dp"
-                        android:textColorHint="#555454"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Date / Day"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp" />
-
-                </LinearLayout>
+                    android:layout_height="55dp" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/updateTaskID"
-                android:layout_marginRight="70dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="80dp"
-                android:text="Update"
-                android:textColor="#FFFFFF"
-                android:textAllCaps="false"
-                android:background="@drawable/save_and_add_design"
-                android:textSize="22sp"
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:fontFamily="serif"
-                android:textStyle="bold"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="  Description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"/>
 
-            <Button
-                android:id="@+id/deleteTaskID"
-                android:layout_marginRight="70dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="10dp"
-                android:text="Delete"
-                android:textColor="#FFFFFF"
-                android:textAllCaps="false"
-                android:background="@drawable/delete_design"
-                android:textSize="22sp"
+                <EditText
+                    android:id="@+id/taskDetailsOutputID"
+                    android:inputType="text"
+                    android:background="@drawable/bginputtask"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Task details"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:fontFamily="serif"
-                android:textStyle="bold"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="  Timeline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
 
+                <EditText
+                    android:id="@+id/executionDateOutputID"
+                    android:inputType="text"
+                    android:background="@drawable/bginputtask"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="Date / Day"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"/>
+
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/updateTaskID"
+            android:text="Update"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:background="@drawable/save_and_add_design"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:paddingRight="70dp"
+            android:paddingLeft="70dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+
+        <Button
+            android:id="@+id/deleteTaskID"
+            android:layout_marginTop="10dp"
+            android:text=" Delete "
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:background="@drawable/delete_design"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:paddingRight="70dp"
+            android:paddingLeft="70dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+    </LinearLayout>
+
+</FrameLayout>

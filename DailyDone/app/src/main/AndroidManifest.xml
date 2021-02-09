@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dailydone">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,15 +14,15 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".FourthDialogActivity"
-            android:screenOrientation="fullSensor"></activity>
+            android:screenOrientation="portrait"></activity>
 
         <activity
             android:name=".SecondActivity"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".SplashScreen"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +32,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="com.example.dailydone.MainActivity" />

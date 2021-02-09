@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +33,7 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    ImageView clockImage;
     ProgressDialog dialog;
     EditText emailInput, phone;
     Button enter;
@@ -44,12 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        clockImage = findViewById(R.id.clockImageId);
         emailInput = findViewById(R.id.emailInputID);
         phone = findViewById(R.id.phoneInputID);
         enter = findViewById(R.id.enterID);
         enter.setOnClickListener(this);
+
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("User Information");
+        clockImage.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_fade_in));
     }
 
     @Override
@@ -69,12 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (phoneObj.equals("")) {
                 phone.setError("Fill this field");
-                dialog.dismiss();
-                return;
-            }
-
-            if (emailObj.length() > 15) {
-                emailInput.setError("Username is too long.\nMaximum number of characters of name is 15");
                 dialog.dismiss();
                 return;
             }
